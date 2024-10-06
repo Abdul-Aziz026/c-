@@ -1,1 +1,54 @@
 # c-
+
+// See https://aka.ms/new-console-template for more information
+using System.Collections.Specialized;
+
+namespace PropertiesGetterSetter
+{
+    class Income
+    {
+        private int _income = 45000;
+        public void Devit(int moneySpend)
+        {
+            income -= moneySpend;
+        }
+
+        public int income
+        {
+            get {
+                Console.WriteLine("Get Call...");
+                return _income;  }
+            set {
+                Console.WriteLine("Set Call...");
+                _income = value;
+                if (_income < 0) income = 0;
+            }
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Income amount = new Income();
+            Console.WriteLine("hello...");
+            //amount.income = 50000;
+
+            // method call sequence get -> get -> subtraction -> set...
+            amount.income = amount.income - 100000;
+            //amount.Devit(25000);
+            Console.WriteLine(amount.income);
+
+
+
+            //DateTime now = DateTime.Now;  // Local time
+            //DateTime custom = new DateTime(2014, 10, 6, 8, 41 ,12);  // custom time
+            //DateTime utcNow = DateTime.UtcNow;  // Coordinated Universal Time (UTC)
+
+            //Console.WriteLine(now);
+            //Console.WriteLine(custom);
+            //Console.WriteLine(utcNow);
+
+        }
+    }
+}
